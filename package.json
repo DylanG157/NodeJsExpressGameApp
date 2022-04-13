@@ -1,0 +1,52 @@
+{
+  "name": "nodejsexpressgameapp",
+  "version": "1.0.0",
+  "description": "Nodejs application using express to create game related API's",
+  "main": "index.js",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "connect-timeout": "^1.9.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "helmet": "^5.0.2",
+    "morgan": "^1.10.0",
+    "morgan-json": "^1.1.0",
+    "winston": "^3.7.2"
+  },
+  "scripts": {
+    "start": "babel-node ./index.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.9",
+    "@babel/node": "^7.16.8",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/runtime": "^7.17.9",
+    "babel-jest": "^27.0.6",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "jest": "^27.0.6",
+    "nodemon": "^2.0.12",
+    "prettier": "^2.3.2",
+    "release-it": "^14.10.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DylanG157/NodeJsExpressGameApp.git"
+  },
+  "keywords": [
+    "NodeJs",
+    "Express",
+    "Game"
+  ],
+  "author": "Dylan Gardner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DylanG157/NodeJsExpressGameApp/issues"
+  },
+  "homepage": "https://github.com/DylanG157/NodeJsExpressGameApp#readme"
+}

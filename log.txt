@@ -1,0 +1,5 @@
+{"contentLength":"11","level":"info","message":"HTTP Access Log","method":"GET","responseTime":3.617,"status":200,"timestamp":"Wed Apr 13 2022 13:39:17 GMT+0200 (South Africa Standard Time)","url":"/"}
+{"contentLength":"11","level":"info","message":"HTTP Access Log","method":"GET","responseTime":0.308,"status":200,"timestamp":"Wed Apr 13 2022 13:39:18 GMT+0200 (South Africa Standard Time)","url":"/"}
+{"contentLength":"11","level":"info","message":"HTTP Access Log","method":"GET","responseTime":0.281,"status":200,"timestamp":"Wed Apr 13 2022 13:39:18 GMT+0200 (South Africa Standard Time)","url":"/"}
+{"contentLength":"11","level":"info","message":"HTTP Access Log","method":"GET","responseTime":0.209,"status":200,"timestamp":"Wed Apr 13 2022 13:39:19 GMT+0200 (South Africa Standard Time)","url":"/"}
+{"contentLength":"11","level":"info","message":"HTTP Access Log","method":"GET","responseTime":0.296,"status":200,"timestamp":"Wed Apr 13 2022 13:39:19 GMT+0200 (South Africa Standard Time)","url":"/"}

@@ -1,0 +1,115 @@
+{
+  "editor.minimap.enabled": false,
+  "editor.minimap.renderCharacters": false,
+  "editor.fontFamily": "'SF Mono', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 15,
+  "editor.formatOnSave": true,
+  "javascript.format.enable": false,
+  "javascript.preferences.quoteStyle": "single",
+  "typescript.preferences.quoteStyle": "single",
+  "workbench.colorTheme": "Night Owl",
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+  "files.exclude": {
+    "**/.DS_Store": true,
+    "**/.git": true,
+    "**/.hg": true,
+    "**/.svn": true,
+    "**/bower_components": true,
+    "**/jspm_packages": true
+  },
+
+  "eslint.validate": ["html", "javascript", "typescript"],
+  "html.format.wrapAttributes": "auto",
+  "breadcrumbs.enabled": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "editor.formatOnSave": false
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "editor.formatOnSave": false
+  },
+  "[json]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "editor.formatOnSave": false
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": false
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": false
+  },
+  "[html]": {
+    "editor.defaultFormatter": "HookyQR.beautify",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": false
+  },
+
+  "javascript.referencesCodeLens.enabled": true,
+  "javascript.format.placeOpenBraceOnNewLineForControlBlocks": true,
+  "javascript.format.placeOpenBraceOnNewLineForFunctions": true,
+  "javascript.updateImportsOnFileMove.enabled": "prompt",
+  "javascript.format.semicolons": "insert",
+  "typescript.format.placeOpenBraceOnNewLineForControlBlocks": true,
+  "typescript.format.semicolons": "insert",
+  "typescript.updateImportsOnFileMove.enabled": "prompt",
+  "typescript.format.placeOpenBraceOnNewLineForFunctions": true,
+  "tslint.alwaysShowRuleFailuresAsWarnings": true,
+  "editor.codeLens": true,
+  "editor.suggestSelection": "first",
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#ab307e",
+    "activityBar.activeBorder": "#25320e",
+    "activityBar.background": "#ab307e",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#25320e",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "statusBar.background": "#832561",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#ab307e",
+    "titleBar.activeBackground": "#832561",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#83256199",
+    "titleBar.inactiveForeground": "#e7e7e799",
+    "sash.hoverBorder": "#ab307e",
+    "statusBarItem.remoteBackground": "#832561",
+    "statusBarItem.remoteForeground": "#e7e7e7"
+  },
+  "peacock.color": "#832561",
+  "cSpell.words": [
+    "CONNECTIONTIMEOUT",
+    "GETPOLICYCONSENTDETAILS",
+    "GETPOLICYDETAILSONELIFEBYREFNORETENTIONS",
+    "GETPRODUCTANDPREMIUMDETAILSRETENTIONS",
+    "ibmi",
+    "IBMIDBPASSWORD",
+    "IBMIDBUSER",
+    "IBMISYSTEM",
+    "INCREMENTSIZE",
+    "INITIALSIZE",
+    "LIFEWORKFILES",
+    "LIFEWORKFILESRETENTIONS",
+    "LOGINTIMEOUT",
+    "MAXSIZE",
+    "REUSECONNECTIONS",
+    "UAEPGM"
+  ]
+}
