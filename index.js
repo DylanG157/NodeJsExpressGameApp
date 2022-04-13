@@ -11,6 +11,8 @@ import {
   failSafeHandler,
 } from "./middleware/error-handler.js";
 import logger from "./middleware/logger.js";
+import bodyParser from "body-parser";
+import userRoute from "./routes/userRoute";
 
 //Setup/initialize environment variables
 dotenv.config();
@@ -21,9 +23,11 @@ const app = express();
 app.use(helmet());
 app.use(cors());
 app.use(compression());
+app.use(bodyParser.json());
 app.use(httpLogger); //Http logging middleware
 
 //Routes go here
+app.use("/user/", userRoute);
 
 //Error logging middleware
 app.use(errorLogger);
@@ -34,6 +38,7 @@ app.use(timeout120);
 app.use(haltOnTimedout);
 
 app.get("/", function (req, res) {
+  console.log(req.body);
   res.send("Its working");
 });
 

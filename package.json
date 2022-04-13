@@ -4,14 +4,18 @@
   "description": "Nodejs application using express to create game related API's",
   "main": "index.js",
   "dependencies": {
+    "axios": "^0.26.1",
     "compression": "^1.7.4",
     "connect-timeout": "^1.9.0",
     "cors": "^2.8.5",
     "express": "^4.17.3",
+    "express-xml-bodyparser": "^0.3.0",
     "helmet": "^5.0.2",
     "morgan": "^1.10.0",
     "morgan-json": "^1.1.0",
-    "winston": "^3.7.2"
+    "winston": "^3.7.2",
+    "xml2js": "^0.4.23",
+    "xml2json": "^0.12.0"
   },
   "scripts": {
     "start": "babel-node ./index.js"

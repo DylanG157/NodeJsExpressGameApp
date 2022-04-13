@@ -1,8 +1,8 @@
-import winston from 'winston';
+import winston from "winston";
 
 const options = {
   console: {
-    level: 'debug',
+    level: "debug",
     handleExceptions: true,
     json: false,
     colorize: true,
@@ -14,8 +14,8 @@ const logger = winston.createLogger({
   transports: [
     new winston.transports.Console(options.console),
     new winston.transports.File({
-      filename: 'log.txt',
-      options: { flags: 'w' },
+      filename: "log.txt",
+      options: { flags: "w" },
     }),
   ],
   exitOnError: false,
