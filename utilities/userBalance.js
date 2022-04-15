@@ -12,44 +12,54 @@ async function fetchUsersBalance(msisdn) {
     <LineItem> <BalanceElement> <CustomerProduct actionCode="BALANCE"> <Ids> <accountId schemeAgencyName="ACME">R</accountId> 
     </Ids> <cmn:Name>AN</cmn:Name> </CustomerProduct> <Specifications> <Specification> <msisdn>${msisdn}</msisdn> </Specification>
     </Specifications> </BalanceElement> </LineItem> </LineItems> </Balance> </BalanceRequest>`;
-  let usersBalanceAmmount = 0;
 
-  axios
-    .post(`${process.env.ACME_SESSION_URL}/v1/balance`, xmlData, {
-      withCredentials: true,
-      headers: {
-        Accept: "application/xml",
-        "Content-Type": "text/xml",
-      },
-      auth: {
-        username: `${process.env.ACME_USERNAME}`,
-        password: `${process.env.ACME_PASSWORD}`,
-      },
-    })
-    .then(function (response) {
-      try {
-        parseString(response.data, (parseError, result) => {
-          if (parseError) {
-            console.log(parseError);
-          } else {
+  const fetchUserBalanceAmmount = async () => {
+    return new Promise((resolve, reject) => {
+      const request = (retries) => {
+        let usersBalanceAmmount = 0;
+        // Make the HTTP request
+        axios
+          .post(`${process.env.ACME_SESSION_URL}/v1/balance`, xmlData, {
+            withCredentials: true,
+            headers: {
+              Accept: "application/xml",
+              "Content-Type": "text/xml",
+            },
+            auth: {
+              username: `${process.env.ACME_USERNAME}`,
+              password: `${process.env.ACME_PASSWORD}`,
+            },
+          })
+          .then((response) => {
+            console.log(response);
             try {
-              usersBalanceAmmount =
-                result.BalanceRespone.Balance[0].LineItems[0].LineItem[0]
-                  .BalanceElement[0].BalanceSpecifications[0].Specification[0]
-                  .balance;
+              parseString(response.data, (parseError, result) => {
+                if (parseError) {
+                  console.log(parseError);
+                } else {
+                  try {
+                    usersBalanceAmmount =
+                      result.BalanceRespone.Balance[0].LineItems[0].LineItem[0]
+                        .BalanceElement[0].BalanceSpecifications[0]
+                        .Specification[0].balance;
+                    return resolve(usersBalanceAmmount);
+                  } catch (error) {
+                    request(--retries);
+                  }
+                }
+              });
             } catch (error) {
-              throw new Error(error);
+              request(--retries);
             }
-          }
-        });
-      } catch (error) {
-        console.log(error);
-      }
-    })
-    .catch(function (errorResponse) {
-      return 0;
+          })
+          .catch((error) => {
+            reject(error);
+          });
+      };
+      request(5); //Change this value for the number of retries of this service
     });
-  return usersBalanceAmmount;
+  };
+  return await fetchUserBalanceAmmount();
 }
 
 function setupUserBalanceSuccessfullResponse(result, req, response) {
@@ -99,9 +109,7 @@ function setupUserPlaySuccessfullResponse(result, req, response) {
         .Error[0].code;
     //Dealin with result code 404 - 'User is out of plays'
     if (errorResultCode == 404) {
-      // userPlayRequestResponse.balance = fetchUsersBalance(
-      //   req.query.msisdn
-      // );
+      userPlayRequestResponse.balance = fetchUsersBalance(req.query.msisdn);
       rewardMessage =
         result.ErrorResponse.Error[0].LineItems[0].LineItem[0].ErrorElement[0]
           .Error[0].message;
@@ -115,18 +123,14 @@ function setupUserPlaySuccessfullResponse(result, req, response) {
         .Specifications[0].Specification[0].result;
     //Dealing with result code 99 - 'Play successful and user did not receive a reward'
     if (rewardsCode == 99) {
-      // userPlayRequestResponse.balance = fetchUsersBalance(
-      //   req.query.msisdn
-      // );
+      userPlayRequestResponse.balance = fetchUsersBalance(req.query.msisdn);
       console.log(fetchUsersBalance(req.query.msisdn));
       userPlayRequestResponse.won = "false";
       rewardMessage = "Sorry better luck next time";
       userPlayRequestResponse.response.message = `User ${req.query.msisdn} did not win a price`;
       //Dealing with result code 42 - 'Play successful and user won a reward'
     } else if (rewardsCode == 42) {
-      // userPlayRequestResponse.balance = fetchUsersBalance(
-      //   req.query.msisdn
-      // );
+      userPlayRequestResponse.balance = fetchUsersBalance(req.query.msisdn);
       userPlayRequestResponse.won = "true";
       rewardMessage = `You've won a ${result.PlayRespone.Play[0].LineItems[0].LineItem[0].PlayElement[0].Specifications[0].Specification[0].rewardRef}`;
       userPlayRequestResponse.response.message = `User ${req.query.msisdn} won a price`;
