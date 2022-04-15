@@ -13,6 +13,7 @@ import {
 import logger from "./middleware/logger.js";
 import bodyParser from "body-parser";
 import userRoute from "./routes/userRoute";
+import authenticationRouter from "./routes/authentication";
 
 //Setup/initialize environment variables
 dotenv.config();
@@ -25,7 +26,7 @@ app.use(cors());
 app.use(compression());
 app.use(bodyParser.json());
 app.use(httpLogger); //Http logging middleware
-
+app.use("/authentication/", authenticationRouter);
 //Routes go here
 app.use("/user/", userRoute);
 

@@ -11,6 +11,7 @@ import {
   setupUserProfileSuccessfullResponse,
 } from "../utilities/userBalance.js";
 import { setupXmlInputData } from "../utilities/setupXmlInputData";
+import { authenticateToken } from "../middleware/jwt-authenticate.js";
 
 const userRoute = express.Router();
 
@@ -140,8 +141,8 @@ async function getUsersProfile(req, res, next) {
     });
 }
 
-userRoute.get("/balance", getUsersBalance);
-userRoute.get("/play", triggerUserPlayRequest);
-userRoute.get("/profile", getUsersProfile);
+userRoute.get("/balance", authenticateToken, getUsersBalance);
+userRoute.get("/play", authenticateToken, triggerUserPlayRequest);
+userRoute.get("/profile", authenticateToken, getUsersProfile);
 
 export default userRoute;
