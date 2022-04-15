@@ -26,8 +26,9 @@ app.use(cors());
 app.use(compression());
 app.use(bodyParser.json());
 app.use(httpLogger); //Http logging middleware
-app.use("/authentication/", authenticationRouter);
+
 //Routes go here
+app.use("/authentication/", authenticationRouter);
 app.use("/user/", userRoute);
 
 //Error logging middleware
