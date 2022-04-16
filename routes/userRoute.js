@@ -7,6 +7,7 @@ import {
   sendError,
 } from "../middleware/validation-handler.js";
 import {
+  fetchUsersBalance,
   setupUserBalanceSuccessfullResponse,
   setupLocalErrorUserBalanceResponse,
   setupUserErrorResponse,
@@ -81,6 +82,29 @@ async function triggerUserPlayRequest(req, res, next) {
   } else {
     let xmlData = setupXmlInputData(req.query.msisdn, "getUsersBalance");
 
+    let response = await fetchUsersBalance(req.query.msisdn);
+    let maxLoopValue = 0;
+    //Attempt to get the balance, max of 5 attempts, increase if needed
+    while (response.status !== 200 && maxLoopValue < 5) {
+      maxLoopValue++;
+      response = await fetchUsersBalance(req.query.msisdn);
+    }
+    let usersBalanceAmmount = 0;
+    parseString(response.data, (parseError, result) => {
+      if (parseError) {
+        usersBalanceAmmount = 0;
+      } else {
+        try {
+          usersBalanceAmmount =
+            result.BalanceRespone.Balance[0].LineItems[0].LineItem[0]
+              .BalanceElement[0].BalanceSpecifications[0].Specification[0]
+              .balance;
+        } catch (error) {
+          usersBalanceAmmount = 0;
+        }
+      }
+    });
+
     axios
       .post(`${process.env.ACME_SESSION_URL}/v1/play`, xmlData, {
         withCredentials: true,
@@ -102,7 +126,14 @@ async function triggerUserPlayRequest(req, res, next) {
             try {
               res
                 .status(200)
-                .send(setupUserPlaySuccessfullResponse(result, req, response));
+                .send(
+                  setupUserPlaySuccessfullResponse(
+                    result,
+                    req,
+                    response,
+                    usersBalanceAmmount
+                  )
+                );
               next();
             } catch (error) {
               res
