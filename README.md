@@ -46,6 +46,11 @@
   <img src="./readmeData/xmlInterInvalid.jpg" alt="JWT Token" width="750">
 </p>
 
+## XML Intergration valid response
+
+<p align="center">
+  <img src="./readmeData/xmlInterValid.jpg" alt="JWT Token" width="750">
+</p>
 
 
 
