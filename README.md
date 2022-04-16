@@ -2,7 +2,8 @@
   <h1>NodeJs Express Game Application</h1>
 </p>
 
-**Features**:
+## Features 
+
 * **API service** intergrating with a **XML** service intergrating
 * Using **express.js**
 * JWT Token security - token validation and generation of token
