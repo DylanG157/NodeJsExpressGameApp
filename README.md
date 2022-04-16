@@ -4,7 +4,7 @@
 
 * **API service** intergrating with an **XML service**
 * **Express.js**
-* JWT Token security - token validation and generation of token
+* JWT token security - token validation and generation of token
 * Input validation with Express validator
 * **Axios** to integrate with XML service 
 * Error handling 
