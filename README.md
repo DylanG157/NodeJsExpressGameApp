@@ -3,7 +3,7 @@
 </p>
 
 **Features**:
-* **API service** intergrating with a **XML** service ** intergrating
+* **API service** intergrating with a **XML** service intergrating
 * Using express service
 * JWT Token security - token validation and generation of token
 * Input Validation with express validator 
