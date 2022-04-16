@@ -2,15 +2,15 @@
 
 ## Features 
 
-* **API service** intergrating with an **XML service** intergrating.
+* **API service** intergrating with an **XML service**
 * **Express.js**
-* JWT Token security - token validation and generation of token.
-* Input validation with Express validator. 
-* **Axios** to integrate with XML service. 
-* Error handling. 
-* Logging of HTTP calls. 
-* Response models.
-* Using Babel to use the latest import syntax. 
+* JWT Token security - token validation and generation of token
+* Input validation with Express validator
+* **Axios** to integrate with XML service 
+* Error handling 
+* Logging of HTTP calls 
+* Response models
+* Using Babel to use the latest import syntax 
 
 ## How to use and test this NodeJs Express application
 
