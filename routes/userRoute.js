@@ -15,6 +15,7 @@ import {
   setupUserPlaySuccessfullResponse,
   setupLocalErrorUserPlayTriggerResponse,
   setupUserProfileSuccessfullResponse,
+  setupUserProfileNoRewardResponse,
 } from "../utilities/userBalance.js";
 import { setupXmlInputData } from "../utilities/setupXmlInputData";
 import { authenticateToken } from "../middleware/jwt-authenticate.js";
@@ -186,11 +187,24 @@ async function getUsersProfile(req, res, next) {
             next();
           } else {
             try {
-              res
-                .status(200)
-                .send(
-                  setupUserProfileSuccessfullResponse(result, req, response)
-                );
+              //If no result returned
+              if (
+                result.WalletRespone.Wallet[0].LineItems[0].LineItem[0]
+                  .WalletElement[0].WalletSpecifications[0].Items[0].reward
+              ) {
+                res
+                  .status(200)
+                  .send(
+                    setupUserProfileSuccessfullResponse(result, req, response)
+                  );
+
+                //If user profile has data
+              } else {
+                res
+                  .status(200)
+                  .send(setupUserProfileNoRewardResponse(response));
+              }
+
               next();
             } catch (error) {
               res.status(400).send(setupLocalErrorUserBalanceResponse(error));

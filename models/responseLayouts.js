@@ -25,7 +25,7 @@ const userPlayRequestResponseLayout = {
   },
 };
 
-const usersProfileRequestResponseLayout = {
+let usersProfileRequestResponseLayout = {
   wallet: [],
   response: {
     status: 0,

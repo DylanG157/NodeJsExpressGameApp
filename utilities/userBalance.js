@@ -125,7 +125,15 @@ function setupLocalErrorUserPlayTriggerResponse(error) {
 }
 
 function setupUserProfileSuccessfullResponse(result, req, response) {
-  let userProfileResponse = usersProfileRequestResponseLayout;
+  let usersProfileRequestResponseMainLayout = {
+    wallet: [],
+    response: {
+      status: 0,
+      message: "",
+    },
+  };
+  let userProfileResponse = {};
+  userProfileResponse = usersProfileRequestResponseMainLayout;
   result.WalletRespone.Wallet[0].LineItems[0].LineItem[0].WalletElement[0].WalletSpecifications[0].Items[0].reward.forEach(
     (element) => {
       let walletObject = {
@@ -144,6 +152,13 @@ function setupUserProfileSuccessfullResponse(result, req, response) {
   return userProfileResponse;
 }
 
+function setupUserProfileNoRewardResponse(response) {
+  let userErrorResponse = userBalanceErrorResponseLayout;
+  userErrorResponse.response.status = response.status;
+  userErrorResponse.response.message = `No user profile / reward information returned from xml service`;
+  return userErrorResponse;
+}
+
 export {
   fetchUsersBalance,
   setupUserBalanceSuccessfullResponse,
@@ -153,4 +168,5 @@ export {
   setupUserPlaySuccessfullResponse,
   setupLocalErrorUserPlayTriggerResponse,
   setupUserProfileSuccessfullResponse,
+  setupUserProfileNoRewardResponse,
 };
