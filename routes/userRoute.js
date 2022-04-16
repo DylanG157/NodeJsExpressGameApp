@@ -26,7 +26,7 @@ async function getUsersBalance(req, res, next) {
   if (!errors.isEmpty()) {
     sendError(res, errors);
   } else {
-    let xmlData = setupXmlInputData(req.query.msisdn, "getUsersBalance");
+    let xmlData = setupXmlInputData(req, "getUsersBalance");
 
     axios
       .post(`${process.env.ACME_SESSION_URL}/v1/balance`, xmlData, {
@@ -80,7 +80,7 @@ async function triggerUserPlayRequest(req, res, next) {
   if (!errors.isEmpty()) {
     sendError(res, errors);
   } else {
-    let xmlData = setupXmlInputData(req.query.msisdn, "getUsersBalance");
+    let xmlData = setupXmlInputData(req, "getUsersBalance");
 
     let response = await fetchUsersBalance(req.query.msisdn);
     let maxLoopValue = 0;
@@ -90,6 +90,7 @@ async function triggerUserPlayRequest(req, res, next) {
       response = await fetchUsersBalance(req.query.msisdn);
     }
     let usersBalanceAmmount = 0;
+    //Extract the balance from the response from 'fetchUsersBalance'
     parseString(response.data, (parseError, result) => {
       if (parseError) {
         usersBalanceAmmount = 0;
@@ -164,7 +165,7 @@ async function getUsersProfile(req, res, next) {
   if (!errors.isEmpty()) {
     sendError(res, errors);
   } else {
-    let xmlData = setupXmlInputData(req.query.msisdn, "getUsersProfile");
+    let xmlData = setupXmlInputData(req, "getUsersProfile");
 
     axios
       .post(`${process.env.ACME_SESSION_URL}/v1/wallet`, xmlData, {

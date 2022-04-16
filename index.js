@@ -27,7 +27,7 @@ app.use(compression());
 app.use(bodyParser.json());
 app.use(httpLogger); //Http logging middleware
 
-//Routes go here
+//Routes
 app.use("/authentication/", authenticationRouter);
 app.use("/user/", userRoute);
 

@@ -46,5 +46,4 @@ authenticationRouter.post(
   validationModel("userTokenGeneration"),
   userTokenGeneration
 );
-// eslint-disable-next-line import/prefer-default-export
 export default authenticationRouter;

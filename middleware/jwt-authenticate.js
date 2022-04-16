@@ -16,5 +16,4 @@ function authenticateToken(req, res, next) {
     return res.status(401).send("Invalid Token");
   }
 }
-// eslint-disable-next-line import/prefer-default-export
 export { authenticateToken };
