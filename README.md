@@ -22,7 +22,10 @@
 5. Then run the 'npm start' to start the application
 6. Then import the post man collection to your post man application using the following link: https://www.getpostman.com/collections/16eaea102665bca607ce (or API service you use)
 7. Then generate the token
-8. Then call the service you would like to test
+8. Then call one of the 3 service you would like to test 
+<p align="center">
+  <img src="./readmeData/apiServices.jpg" alt="JWT Token" width="750">
+</p>
 
 ## JWT Authentication
 
