@@ -20,7 +20,7 @@
 3. Once nvm is installed, install the following version of nodejs using the following command 'nvm install 16.13.0'
 4. Then run the following command to use the following version 'nvm use 16.13.0 lts'
 5. Then run the 'npm start' to start the application
-6. Then import the post man collection to your post man application (or API service you use)
+6. Then import the post man collection to your post man application using the following link: https://www.getpostman.com/collections/16eaea102665bca607ce (or API service you use)
 7. Then generate the token
 8. Then call the service you would like to test
 
@@ -33,5 +33,19 @@
 <p align="center">
   <img src="./readmeData/tokenBlock.jpg" alt="JWT Token" width="750">
 </p>
+
+## API Input Validation
+
+<p align="center">
+  <img src="./readmeData/apiValidation.jpg" alt="JWT Token" width="750">
+</p>
+
+## XML Intergration invalid response
+
+<p align="center">
+  <img src="./readmeData/xmlInterInvalid.jpg" alt="JWT Token" width="750">
+</p>
+
+
 
 
