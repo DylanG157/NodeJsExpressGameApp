@@ -24,7 +24,7 @@
 7. Then generate the token
 8. Then call one of the 3 service you would like to test 
 <p align="center">
-  <img src="./readmeData/apiServices.jpg" alt="JWT Token" width="750">
+  <img src="./readmeData/apiServices.jpg" alt="JWT Token" width="250">
 </p>
 
 ## JWT Authentication
