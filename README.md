@@ -13,7 +13,7 @@
 * Response Models
 * Babel to use the Latest import syntax 
 
-##How to use and test this API
+## How to use and test this API
 
 1.Clone this repository
 2.head to https://github.com/nvm-sh/nvm and follow the installation instructions 
