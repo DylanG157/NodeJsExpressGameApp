@@ -55,5 +55,13 @@
   <img src="./readmeData/xmlInterValid.jpg" alt="JWT Token" width="750">
 </p>
 
+## ToDo / Improvement list
+
+1. Swagger 
+2. Jest Validation
+3. Docker Container
+4. PM2 for load balancing
+
+
 
 
