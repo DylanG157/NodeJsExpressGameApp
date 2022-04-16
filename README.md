@@ -1,6 +1,4 @@
-<p align="center">
-  <h1 align="center">NodeJs Express Game Application</h1>
-</p>
+<h1 align="center">NodeJs Express Game Application</h1>
 
 ## Features 
 
