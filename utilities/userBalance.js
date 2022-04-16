@@ -1,5 +1,4 @@
 import axios from "axios";
-import { parseString } from "xml2js";
 import {
   userBalanceResponseLayout,
   userBalanceErrorResponseLayout,
@@ -30,7 +29,7 @@ async function fetchUsersBalance(msisdn) {
       }
     );
   } catch (err) {
-    // Handle Error Here
+    //if there is an error return zero for now
     return usersBalanceAmmount;
   }
 }
@@ -40,7 +39,6 @@ function setupUserBalanceSuccessfullResponse(result, req, response) {
   let usersBalanceAmmount =
     result.BalanceRespone.Balance[0].LineItems[0].LineItem[0].BalanceElement[0]
       .BalanceSpecifications[0].Specification[0].balance;
-
   userBalanceResponse.msisdn = req.query.msisdn;
   userBalanceResponse.balance = parseInt(usersBalanceAmmount);
   userBalanceResponse.response.status = response.status;

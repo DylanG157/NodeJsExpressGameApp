@@ -8,12 +8,12 @@ function setupXmlInputData(req, xmlDataChoice) {
     </Specifications> </BalanceElement> </LineItem> </LineItems> </Balance> </BalanceRequest>`;
   } else if (xmlDataChoice === "triggerUserPlayRequest") {
     xmlDataInput = `<?xml version="1.0" encoding="ISO-8859-1"?><PlayRequest><Play><LineItems><LineItem>
-    <PlayElement><CustomerProduct actionCode="PLAY"><Ids><accountId schemeAgencyName="ACME">U</accountId>
+    <PlayElement><CustomerProduct actionCode="PLAY"><Ids><accountId schemeAgencyName="ACME">${req.query.UUID}</accountId>
     </Ids><name>${req.query.userName}</name></CustomerProduct><Specifications><Specification><msisdn>${req.query.msisdn}</msisdn>
     </Specification></Specifications></PlayElement></LineItem></LineItems></Play></PlayRequest>`;
   } else if (xmlDataChoice === "getUsersProfile") {
     xmlDataInput = `<?xml version="1.0" encoding="ISO-8859-1"?><WalletRequest><Wallet><LineItems><LineItem>
-    <WalletElement><CustomerProduct actionCode="Wallet"><Ids><accountId schemeAgencyName="ACME">R</accountId>
+    <WalletElement><CustomerProduct actionCode="Wallet"><Ids><accountId schemeAgencyName="ACME">${req.query.UUID}</accountId>
     </Ids><cmn:Name>${req.query.userName}</cmn:Name></CustomerProduct><Specifications><Specification><msisdn>${req.query.msisdn}</msisdn>
     </Specification></Specifications></WalletElement></LineItem></LineItems></Wallet></WalletRequest>`;
   }
